@@ -41,6 +41,7 @@ function addInputs(){
 
 }
  addBtn.addEventListener("click",addInputs)
+ input.addEventListener("keypress", (e) => { if (e.key === "Enter") addInputs(); })
 
 
  function editText(span){
