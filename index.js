@@ -73,6 +73,8 @@ function addInputs(){
         parent.removeChild(saveBtn);
     });
 
+
+    
     
     inputField.focus();
  }
