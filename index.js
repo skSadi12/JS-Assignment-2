@@ -9,7 +9,7 @@ function addInputs(){
         return;
     }
     let li = document.createElement("li")
-    li.classList.add("flex","justify-between" )
+    li.classList.add("flex","justify-between","bg-gray-300", "rounded-lg", "p-2" )
 
     let span = document.createElement("span")
     span.textContent=inputText
