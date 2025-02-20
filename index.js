@@ -24,11 +24,12 @@ function addInputs(){
 
     let deleteBtn = document.createElement("button")
     deleteBtn.textContent ="Delete"
+    deleteBtn.id = 'deleteBtnId'
     deleteBtn.addEventListener("click",()=> li.remove())
     deleteBtn.classList.add("bg-red-500", "px-1" ,"rounded-lg" ,"px-3" ,"text-white")
 
-    div.appendChild(deleteBtn)
     div.appendChild(editBtn)
+    div.appendChild(deleteBtn)
     li.appendChild(span)
     li.appendChild(div)
     list.appendChild(li)
@@ -36,5 +37,41 @@ function addInputs(){
     input.value = ""
 
 
+
+
 }
  addBtn.addEventListener("click",addInputs)
+
+
+ function editText(span){
+    let currentText = span.textContent;
+    let inputField = document.createElement("input");
+    inputField.type = "text";
+    inputField.value = currentText;
+    inputField.classList.add("bg-gray-200", "p-1", "rounded-lg");
+
+    let saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+    saveBtn.classList.add("bg-blue-500", "px-2", "rounded-lg", "text-white", "ml-2");
+
+    let parent = span.parentElement;
+    parent.replaceChild(inputField, span);
+    parent.appendChild(saveBtn);
+
+
+    saveBtn.addEventListener("click", () => {
+        let updatedText = inputField.value.trim();
+        if (updatedText === "") {
+            alert("Text cannot be empty!");
+            return;
+        }
+        
+        
+        span.textContent = updatedText;
+        parent.replaceChild(span, inputField);
+        parent.removeChild(saveBtn);
+    });
+
+    
+    inputField.focus();
+ }
